@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="invitation">
+    <h1>You're Invited!</h1>
+    <h2>💍 Suresh & Lakshmi Chaitanya 💍</h2>
+    <p>We are delighted to invite you to our wedding</p>
+
+    <div class="timer">
+      <h3>Countdown to Muhurtham</h3>
+      <div id="countdown">Loading...</div>
+    </div>
+
+    <div class="details">
+      <h3>Muhurtham</h3>
+      <p><strong>Date:</strong> 06 June 2025</p>
+      <p><strong>Time:</strong> 03:39 AM</p>
+      <p><strong>Venue:</strong> Ponnur</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31330.226047881!2d80.5412679!3d16.0713266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a04a3e402f4ef%3A0x2a50a0a4a8e55ce5!2sPonnur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1716540000000!5m2!1sen!2sin" 
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+      <h3>Reception</h3>
+      <p><strong>Date:</strong> 06 June 2025</p>
+      <p><strong>Time:</strong> 08:00 PM</p>
+      <p><strong>Venue:</strong> Amaravathi</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.7433909349693!2d80.5069713759188!3d16.57352798420959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a358bd1743e4e0b%3A0x9f9c720c812b84b4!2sAmaravathi%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1716541234567!5m2!1sen!2sin" 
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Countdown to muhurtham
+    const muhurthamDate = new Date("2025-06-06T03:39:00");
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = muhurthamDate - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = "It's time!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
